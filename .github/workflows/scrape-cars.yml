@@ -1,0 +1,32 @@
+name: Daily Car Scraping
+
+on:
+  schedule:
+    # Всеки ден в 03:00 UTC
+    - cron: '0 3 * * *'
+  workflow_dispatch:  # Позволява ръчно пускане
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      
+      - name: Run scraper
+        run: node scraper.js
+      
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add data/cars.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Update car listings - $(date)"
+            git push
+          fi

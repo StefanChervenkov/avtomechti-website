@@ -1,0 +1,14 @@
+[
+  {
+    "title": "BMW 320i",
+    "price": "15 900 BGN",
+    "image": "https://via.placeholder.com/300x200?text=BMW+320i",
+    "link": "https://mobile.bg"
+  },
+  {
+    "title": "Audi A4",
+    "price": "18 500 BGN",
+    "image": "https://via.placeholder.com/300x200?text=Audi+A4",
+    "link": "https://mobile.bg"
+  }
+]
