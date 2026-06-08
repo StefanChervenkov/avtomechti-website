@@ -1,14 +1,26 @@
 [
   {
-    "title": "BMW 320i",
+    "title": "BMW 320i 2019",
     "price": "15 900 BGN",
     "image": "https://via.placeholder.com/300x200?text=BMW+320i",
-    "link": "https://mobile.bg"
+    "link": "https://www.mobile.bg/en/listings/avtomechti"
   },
   {
-    "title": "Audi A4",
+    "title": "Audi A4 2018",
     "price": "18 500 BGN",
     "image": "https://via.placeholder.com/300x200?text=Audi+A4",
-    "link": "https://mobile.bg"
+    "link": "https://www.mobile.bg/en/listings/avtomechti"
+  },
+  {
+    "title": "Mercedes-Benz C-Class 2020",
+    "price": "22 000 BGN",
+    "image": "https://via.placeholder.com/300x200?text=Mercedes+C-Class",
+    "link": "https://www.mobile.bg/en/listings/avtomechti"
+  },
+  {
+    "title": "Volkswagen Passat 2017",
+    "price": "12 500 BGN",
+    "image": "https://via.placeholder.com/300x200?text=VW+Passat",
+    "link": "https://www.mobile.bg/en/listings/avtomechti"
   }
 ]
