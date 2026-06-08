@@ -1,12 +1,13 @@
 async function loadCars() {
   try {
-    const response = await fetch('/data/cars.json');
+    const response = await fetch('data/cars.json');
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const cars = await response.json();
     displayCars(cars);
   } catch (error) {
     console.error('Error loading cars:', error);
     document.getElementById('cars-container').innerHTML = 
-      '<p class="text-red-500">Error loading car listings</p>';
+      '<p class="text-red-500">Error loading cars</p>';
   }
 }
 
@@ -35,5 +36,4 @@ function displayCars(cars) {
   `).join('');
 }
 
-// Load cars when page loads
 document.addEventListener('DOMContentLoaded', loadCars);
