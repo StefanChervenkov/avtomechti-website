@@ -1,13 +1,22 @@
 const https = require('https');
 const fs = require('fs');
 
-// Dealer ID за Avtomechti: 16611
+// Avtomechti Dealer ID: 16611
 const DEALER_ID = '16611';
 const MOBILE_BG_URL = `https://www.mobile.bg/en/listings?criterion_od_id_ad=${DEALER_ID}`;
 
-async function fetchPage(url) {
+async function fetchPage(pageUrl) {
   return new Promise((resolve, reject) => {
-    https.get(url, { headers: { 'User-Agent': 'Mozilla/5.0' } }, (res) => {
+    const options = {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+        'Accept-Language': 'bg-BG,bg;q=0.9',
+        'Cache-Control': 'no-cache'
+      }
+    };
+    
+    https.get(pageUrl, options, (res) => {
       let data = '';
       res.on('data', chunk => data += chunk);
       res.on('end', () => resolve(data));
@@ -18,37 +27,50 @@ async function fetchPage(url) {
 function extractCars(html) {
   const cars = [];
   
-  // RegExp за извличане на карти с коли
-  const carRegex = /<div\s+class="listing-item"[^>]*>[\s\S]*?<\/div>\s*<\/div>/g;
-  const matches = html.matchAll(carRegex);
+  // Extract ad IDs
+  const adIdRegex = /data-ad-id="(\d+)"/g;
+  const adIds = [];
+  let match;
+  while ((match = adIdRegex.exec(html)) !== null) {
+    adIds.push(match[1]);
+  }
   
-  for (const match of matches) {
-    const cardHtml = match[0];
-    
-    // Снимка
-    const imgMatch = cardHtml.match(/<img[^>]*src="([^"]*)"[^>]*>/);
-    const image = imgMatch ? imgMatch[1] : '';
-    
-    // Линк към обява
-    const linkMatch = cardHtml.match(/<a\s+href="([^"]*)"[^>]*class="[^"]*listing-link[^"]*"/);
-    const link = linkMatch ? 'https://mobile.bg' + linkMatch[1] : '';
-    
-    // Модел и марка
-    const titleMatch = cardHtml.match(/<h3[^>]*>([^<]*)<\/h3>/);
-    const title = titleMatch ? titleMatch[1].trim() : '';
-    
-    // Цена
-    const priceMatch = cardHtml.match(/<span\s+class="[^"]*price[^"]*"[^>]*>([^<]*)<\/span>/);
-    const price = priceMatch ? priceMatch[1].trim() : '';
-    
-    if (image && link && title) {
-      cars.push({
-        title,
-        price,
-        image,
-        link
-      });
+  // Extract car models/titles
+  const titleRegex = /class="[^"]*?title[^"]*?"[^>]*?>([^<]+)<\/(?:a|span|h\d)/gi;
+  const titles = [];
+  while ((match = titleRegex.exec(html)) !== null) {
+    const title = match[1].trim();
+    if (title.length > 2 && title.length < 100) {
+      titles.push(title);
     }
+  }
+  
+  // Extract images
+  const imgRegex = /src="(https:\/\/[^"]*mobile\.bg[^"]*\.(?:jpg|png|jpeg|webp))"/gi;
+  const images = [];
+  while ((match = imgRegex.exec(html)) !== null) {
+    images.push(match[1]);
+  }
+  
+  // Extract prices
+  const priceRegex = /class="[^"]*?price[^"]*?"[^>]*?>([^<]*(?:\d[^<]*)?лв?)<\/(?:span|div)/gi;
+  const prices = [];
+  while ((match = priceRegex.exec(html)) !== null) {
+    const price = match[1].trim();
+    if (price && price.length > 0) {
+      prices.push(price);
+    }
+  }
+  
+  // Combine all data
+  const count = Math.min(adIds.length, titles.length, 20);
+  for (let i = 0; i < count; i++) {
+    cars.push({
+      title: titles[i],
+      price: prices[i] || 'Contact for price',
+      image: images[i] || 'https://via.placeholder.com/300x200?text=Car+Listing',
+      link: `https://www.mobile.bg/en/listings/${adIds[i]}`
+    });
   }
   
   return cars;
@@ -56,23 +78,33 @@ function extractCars(html) {
 
 async function main() {
   try {
-    console.log('Fetching cars from Mobile.bg...');
+    console.log('🚗 Scraping Avtomechti listings from Mobile.bg...');
     const html = await fetchPage(MOBILE_BG_URL);
     
-    const cars = extractCars(html);
-    console.log(`Found ${cars.length} cars`);
-    
-    // Създай data папка ако не съществува
-    if (!fs.existsSync('data')) {
-      fs.mkdirSync('data');
+    if (!html || html.length < 1000) {
+      throw new Error('Empty or invalid response from Mobile.bg');
     }
     
-    // Запиши JSON
+    const cars = extractCars(html);
+    
+    if (!fs.existsSync('data')) {
+      fs.mkdirSync('data', { recursive: true });
+    }
+    
     fs.writeFileSync('data/cars.json', JSON.stringify(cars, null, 2));
-    console.log('✓ cars.json updated successfully');
+    
+    console.log(`✅ Success! Saved ${cars.length} car listings to data/cars.json`);
+    
+    if (cars.length === 0) {
+      console.warn('⚠️  Warning: No cars found. Mobile.bg HTML structure may have changed.');
+    }
     
   } catch (error) {
-    console.error('Error:', error.message);
+    console.error('❌ Error:', error.message);
+    if (!fs.existsSync('data')) {
+      fs.mkdirSync('data', { recursive: true });
+    }
+    fs.writeFileSync('data/cars.json', JSON.stringify([], null, 2));
     process.exit(1);
   }
 }
