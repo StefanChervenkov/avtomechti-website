@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +13,7 @@
       height: 500px;
       overflow: hidden;
     }
-    
+
     .slide {
       position: absolute;
       width: 100%;
@@ -22,11 +23,11 @@
       opacity: 0;
       transition: opacity 1s ease-in-out;
     }
-    
+
     .slide.active {
       opacity: 1;
     }
-    
+
     .overlay {
       position: absolute;
       top: 0;
@@ -39,7 +40,7 @@
       justify-content: center;
       z-index: 10;
     }
-    
+
     .slide-dots {
       position: absolute;
       bottom: 20px;
@@ -49,7 +50,7 @@
       display: flex;
       gap: 10px;
     }
-    
+
     .dot {
       width: 12px;
       height: 12px;
@@ -58,45 +59,76 @@
       cursor: pointer;
       transition: background 0.3s ease;
     }
-    
+
     .dot.active {
       background: rgba(255, 255, 255, 1);
     }
   </style>
 </head>
+
 <body class="bg-gray-900 text-gray-100">
   <nav class="bg-gray-800 shadow-lg">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <div class="flex items-center gap-3">
-        <img src="logos/nks-avtomechti.png" alt="НКС Авто Мечти" class="h-12 w-auto">
-        <div class="text-2xl font-bold text-blue-400">НКС АВТО МЕЧТИ</div>
+    <div class="max-w-7xl mx-auto px-4 py-4">
+
+      ```
+      <div class="flex justify-between items-center">
+        <!-- Logo -->
+        <div class="flex items-center gap-3">
+          <img src="logos/nks-avtomechti.png" alt="НКС Авто Мечти" class="h-12 w-auto">
+          <div class="text-lg md:text-2xl font-bold text-blue-400">
+            НКС АВТО МЕЧТИ
+          </div>
+        </div>
+
+        <!-- Desktop Menu -->
+        <ul class="hidden md:flex gap-6">
+          <li><a href="index.html" class="hover:text-blue-400 transition">Начало</a></li>
+          <li><a href="listings.html" class="hover:text-blue-400 transition">Автомобили</a></li>
+          <li><a href="about.html" class="hover:text-blue-400 transition">За нас</a></li>
+          <li><a href="contact.html" class="hover:text-blue-400 transition">Контакти</a></li>
+        </ul>
+
+        <!-- Hamburger Button -->
+        <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
       </div>
-      <ul class="flex gap-6">
-        <li><a href="index.html" class="hover:text-blue-400 transition">Начало</a></li>
-        <li><a href="listings.html" class="hover:text-blue-400 transition">Автомобили</a></li>
-        <li><a href="about.html" class="hover:text-blue-400 transition">За нас</a></li>
-        <li><a href="contact.html" class="hover:text-blue-400 transition">Контакти</a></li>
-      </ul>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden mt-4">
+        <ul class="flex flex-col gap-4 border-t border-gray-700 pt-4">
+          <li><a href="index.html" class="block hover:text-blue-400">Начало</a></li>
+          <li><a href="listings.html" class="block hover:text-blue-400">Автомобили</a></li>
+          <li><a href="about.html" class="block hover:text-blue-400">За нас</a></li>
+          <li><a href="contact.html" class="block hover:text-blue-400">Контакти</a></li>
+        </ul>
+      </div>
+      ```
+
     </div>
   </nav>
+
 
   <!-- Hero Section with Slideshow -->
   <section class="slideshow-container">
     <!-- Slides -->
     <div class="slide active" id="slide1" style="background-image: url('images/office-outside.jpg')"></div>
     <div class="slide" id="slide2" style="background-image: url('images/office-inside.jpg')"></div>
-    
+
     <!-- Overlay with Text -->
     <div class="overlay">
       <div class="text-center">
         <h1 class="text-5xl font-bold mb-4">Добре дошли в НКС Авто Мечти</h1>
         <p class="text-xl text-gray-200">Вашият доверен партньор при избора на автомобил</p>
-        <a href="listings.html" class="inline-block mt-6 bg-white text-blue-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition">
+        <a href="listings.html"
+          class="inline-block mt-6 bg-white text-blue-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition">
           Разгледайте актуални обяви
         </a>
       </div>
     </div>
-    
+
     <!-- Navigation Dots -->
     <div class="slide-dots">
       <span class="dot active" onclick="currentSlide(1)"></span>
@@ -117,7 +149,8 @@
       </div>
       <div class="bg-gray-800 p-8 rounded-lg text-center">
         <h3 class="text-2xl font-bold text-blue-400 mb-4">✓ Професионално отношение</h3>
-        <p class="text-gray-300">Съдействаме при избора на автомобил и отговаряме на всички ваши въпроси с внимание и професионализъм.</p>
+        <p class="text-gray-300">Съдействаме при избора на автомобил и отговаряме на всички ваши въпроси с внимание и
+          професионализъм.</p>
       </div>
     </div>
   </section>
@@ -133,21 +166,21 @@
     function showSlides(n) {
       const slides = document.getElementsByClassName('slide');
       const dots = document.getElementsByClassName('dot');
-      
+
       if (n > slides.length) {
         currentSlideIndex = 1;
       }
       if (n < 1) {
         currentSlideIndex = slides.length;
       }
-      
+
       for (let i = 0; i < slides.length; i++) {
         slides[i].classList.remove('active');
       }
       for (let i = 0; i < dots.length; i++) {
         dots[i].classList.remove('active');
       }
-      
+
       slides[currentSlideIndex - 1].classList.add('active');
       dots[currentSlideIndex - 1].classList.add('active');
     }
@@ -168,6 +201,18 @@
 
     showSlides(currentSlideIndex);
     autoSlide();
+
+
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+    });
   </script>
+
+
+
 </body>
+
 </html>
