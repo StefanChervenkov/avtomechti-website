@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,42 +13,74 @@
       background-position: center;
       background-color: rgba(30, 41, 59, 0.8);
     }
-    
+
     .logo-overlay {
       background: rgba(0, 0, 0, 0.4);
       backdrop-filter: blur(2px);
     }
   </style>
 </head>
+
 <body class="bg-gray-900 text-gray-100">
   <nav class="bg-gray-800 shadow-lg">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <div class="flex items-center gap-3">
-        <img src="logos/nks-avtomechti.png" alt="НКС АВТО МЕЧТИ" class="h-12 w-auto">
-        <div class="text-2xl font-bold text-blue-400">НКС АВТО МЕЧТИ</div>
+    <div class="max-w-7xl mx-auto px-4 py-4">
+
+      ```
+      <div class="flex justify-between items-center">
+
+        <div class="flex items-center gap-3">
+          <img src="logos/nks-avtomechti.png" alt="НКС АВТО МЕЧТИ" class="h-12 w-auto">
+          <div class="text-lg md:text-2xl font-bold text-blue-400">
+            НКС АВТО МЕЧТИ
+          </div>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <ul class="hidden md:flex gap-6">
+          <li><a href="index.html" class="hover:text-blue-400 transition">Начало</a></li>
+          <li><a href="listings.html" class="hover:text-blue-400 transition">Автомобили</a></li>
+          <li><a href="about.html" class="hover:text-blue-400 transition">За нас</a></li>
+          <li><a href="contact.html" class="hover:text-blue-400 transition">Контакти</a></li>
+        </ul>
+
+        <!-- Hamburger Button -->
+        <button id="menu-btn" class="md:hidden">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+
       </div>
-      <ul class="flex gap-6">
-        <li><a href="index.html" class="hover:text-blue-400 transition">Начало</a></li>
-        <li><a href="listings.html" class="hover:text-blue-400 transition">Автомобили</a></li>
-        <li><a href="about.html" class="hover:text-blue-400 transition">За нас</a></li>
-        <li><a href="contact.html" class="hover:text-blue-400 transition">Контакти</a></li>
-      </ul>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden mt-4">
+        <ul class="flex flex-col gap-4 border-t border-gray-700 pt-4">
+          <li><a href="index.html" class="block hover:text-blue-400">Начало</a></li>
+          <li><a href="listings.html" class="block hover:text-blue-400">Автомобили</a></li>
+          <li><a href="about.html" class="block hover:text-blue-400">За нас</a></li>
+          <li><a href="contact.html" class="block hover:text-blue-400">Контакти</a></li>
+        </ul>
+      </div>
+      ```
+
     </div>
   </nav>
 
+
   <section class="max-w-7xl mx-auto px-4 py-16">
     <h1 class="text-4xl font-bold mb-12">Обяви</h1>
-    
+
     <!-- Main NKS Card -->
     <div class="mb-16">
       <h2 class="text-2xl font-bold text-blue-400 mb-8">НКС АВТО МЕЧТИ</h2>
       <a href="https://avtomechti.mobile.bg/" target="_blank" rel="noopener noreferrer" class="block">
-        <div class="bg-gradient-to-r from-blue-600 to-blue-800 rounded-lg overflow-hidden hover:shadow-2xl transition-all transform hover:scale-105">
+        <div
+          class="bg-gradient-to-r from-blue-600 to-blue-800 rounded-lg overflow-hidden hover:shadow-2xl transition-all transform hover:scale-105">
           <div class="h-64 logo-card" style="background-image: url('logos/nks-avtomechti.png')">
             <div class="logo-overlay h-full flex items-center justify-center">
               <div class="text-center">
-                
-              
+
+
                 <p class="text-blue-200 mt-4">🔗 Разгледайте нашите обяви в Mobile.bg→</p>
               </div>
             </div>
@@ -55,261 +88,295 @@
         </div>
       </a>
     </div>
-    
+
     <!-- Partner Dealerships -->
     <div>
       <h2 class="text-2xl font-bold text-blue-400 mb-8">Автомобили от нашата</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        
+
         <!-- Partner 1 - ГАЛЕРИЯ АУТО -->
         <a href="https://autogaleria.mobile.bg/" target="_blank" rel="noopener noreferrer" class="block">
-          <div class="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
+          <div
+            class="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
             <div class="h-48 logo-card" style="background-image: url('logos/autogaleria.png')"></div>
             <div class="p-6 flex-grow flex flex-col justify-between">
               <div>
                 <h3 class="text-2xl font-bold text-white mb-2">ГАЛЕРИЯ АУТО</h3>
               </div>
-              <span class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors mt-4">
+              <span
+                class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors mt-4">
                 Виж обявите
               </span>
             </div>
           </div>
         </a>
-        
+
         <!-- Partner 2 - КОКО АУТО -->
         <a href="https://kokoauto.mobile.bg/" target="_blank" rel="noopener noreferrer" class="block">
-          <div class="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
+          <div
+            class="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
             <div class="h-48 logo-card" style="background-image: url('logos/partner-name.png')"></div>
             <div class="p-6 flex-grow flex flex-col justify-between">
               <div>
                 <h3 class="text-2xl font-bold text-white mb-2">КОКО АУТО</h3>
               </div>
-              <span class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors mt-4">
+              <span
+                class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors mt-4">
                 Виж обявите
               </span>
             </div>
           </div>
         </a>
-        
+
         <!-- Partner 3 - АНИ АУТО -->
         <a href="https://aniauto.mobile.bg/" target="_blank" rel="noopener noreferrer" class="block">
-          <div class="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
+          <div
+            class="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
             <div class="h-48 logo-card" style="background-image: url('logos/another-partner.jpg')"></div>
             <div class="p-6 flex-grow flex flex-col justify-between">
               <div>
                 <h3 class="text-2xl font-bold text-white mb-2">АНИ АУТО</h3>
               </div>
-              <span class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors mt-4">
+              <span
+                class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors mt-4">
                 Виж обявите
               </span>
             </div>
           </div>
         </a>
-        
+
         <!-- Partner 4 - МАКС АУТО 2010 -->
         <a href="https://maxauto2010.mobile.bg/" target="_blank" rel="noopener noreferrer" class="block">
-          <div class="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
+          <div
+            class="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
             <div class="h-48 logo-card" style="background-image: url('logos/maxauto2010.png')"></div>
             <div class="p-6 flex-grow flex flex-col justify-between">
               <div>
                 <h3 class="text-2xl font-bold text-white mb-2">МАКС АУТО 2010</h3>
               </div>
-              <span class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors mt-4">
+              <span
+                class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors mt-4">
                 Виж обявите
               </span>
             </div>
           </div>
         </a>
-        
+
         <!-- Partner 5 - ЧОКО АУТО -->
         <a href="https://chokoauto.mobile.bg/" target="_blank" rel="noopener noreferrer" class="block">
-          <div class="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
+          <div
+            class="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
             <div class="h-48 logo-card" style="background-image: url('logos/chokoauto.jpg')"></div>
             <div class="p-6 flex-grow flex flex-col justify-between">
               <div>
                 <h3 class="text-2xl font-bold text-white mb-2">ЧОКО АУТО</h3>
               </div>
-              <span class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors mt-4">
+              <span
+                class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors mt-4">
                 Виж обявите
               </span>
             </div>
           </div>
         </a>
-        
+
         <!-- Partner 6 - МАКС КАРС -->
         <a href="https://maxcars.mobile.bg/" target="_blank" rel="noopener noreferrer" class="block">
-          <div class="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
+          <div
+            class="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
             <div class="h-48 logo-card" style="background-image: url('logos/maxcars.png')"></div>
             <div class="p-6 flex-grow flex flex-col justify-between">
               <div>
                 <h3 class="text-2xl font-bold text-white mb-2">МАКС КАРС</h3>
               </div>
-              <span class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors mt-4">
+              <span
+                class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors mt-4">
                 Виж обявите
               </span>
             </div>
           </div>
         </a>
-        
+
         <!-- Partner 7 - ЕТИКА АУТО -->
         <a href="https://etika-auto.mobile.bg/" target="_blank" rel="noopener noreferrer" class="block">
-          <div class="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
+          <div
+            class="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
             <div class="h-48 logo-card" style="background-image: url('logos/etikaauto.png')"></div>
             <div class="p-6 flex-grow flex flex-col justify-between">
               <div>
                 <h3 class="text-2xl font-bold text-white mb-2">ЕТИКА АУТО</h3>
               </div>
-              <span class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors mt-4">
+              <span
+                class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors mt-4">
                 Виж обявите
               </span>
             </div>
           </div>
         </a>
-        
+
         <!-- Partner 8 - АСКО 96 -->
         <a href="https://asko96.mobile.bg/" target="_blank" rel="noopener noreferrer" class="block">
-          <div class="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
+          <div
+            class="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
             <div class="h-48 logo-card" style="background-image: url('logos/asko96.png')"></div>
             <div class="p-6 flex-grow flex flex-col justify-between">
               <div>
                 <h3 class="text-2xl font-bold text-white mb-2">АСКО 96</h3>
               </div>
-              <span class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors mt-4">
+              <span
+                class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors mt-4">
                 Виж обявите
               </span>
             </div>
           </div>
         </a>
-        
+
         <!-- Partner 9 - ХАЙ АУТО -->
         <a href="https://hayauto.mobile.bg/" target="_blank" rel="noopener noreferrer" class="block">
-          <div class="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
+          <div
+            class="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
             <div class="h-48 logo-card" style="background-image: url('logos/hayauto.png')"></div>
             <div class="p-6 flex-grow flex flex-col justify-between">
               <div>
                 <h3 class="text-2xl font-bold text-white mb-2">ХАЙ АУТО</h3>
               </div>
-              <span class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors mt-4">
+              <span
+                class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors mt-4">
                 Виж обявите
               </span>
             </div>
           </div>
         </a>
-        
+
         <!-- Partner 10 - МАКС ТРЕЙД -->
         <a href="https://maxxtrade.mobile.bg/" target="_blank" rel="noopener noreferrer" class="block">
-          <div class="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
+          <div
+            class="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
             <div class="h-48 logo-card" style="background-image: url('logos/maxtrade.png')"></div>
             <div class="p-6 flex-grow flex flex-col justify-between">
               <div>
                 <h3 class="text-2xl font-bold text-white mb-2">МАКС ТРЕЙД</h3>
               </div>
-              <span class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors mt-4">
+              <span
+                class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors mt-4">
                 Виж обявите
               </span>
             </div>
           </div>
         </a>
-        
+
         <!-- Partner 11 - МАКС РОЯЛ -->
         <a href="https://maxxroyal.mobile.bg/" target="_blank" rel="noopener noreferrer" class="block">
-          <div class="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
+          <div
+            class="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
             <div class="h-48 logo-card" style="background-image: url('logos/maxroyal.png')"></div>
             <div class="p-6 flex-grow flex flex-col justify-between">
               <div>
                 <h3 class="text-2xl font-bold text-white mb-2">МАКС РОЯЛ</h3>
               </div>
-              <span class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors mt-4">
+              <span
+                class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors mt-4">
                 Виж обявите
               </span>
             </div>
           </div>
         </a>
-        
+
         <!-- Partner 12 - ШАМПИОН АУТО ПРО -->
         <a href="https://championautopro.mobile.bg/" target="_blank" rel="noopener noreferrer" class="block">
-          <div class="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
+          <div
+            class="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
             <div class="h-48 logo-card" style="background-image: url('logos/championautopro.jpg')"></div>
             <div class="p-6 flex-grow flex flex-col justify-between">
               <div>
                 <h3 class="text-2xl font-bold text-white mb-2">ШАМПИОН АУТО ПРО</h3>
               </div>
-              <span class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors mt-4">
+              <span
+                class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors mt-4">
                 Виж обявите
               </span>
             </div>
           </div>
         </a>
-        
+
         <!-- Partner 13 - ШАМПИОН АУТО СОФИЯ -->
         <a href="https://champion2.mobile.bg/" target="_blank" rel="noopener noreferrer" class="block">
-          <div class="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
+          <div
+            class="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
             <div class="h-48 logo-card" style="background-image: url('logos/championauto2.jpg')"></div>
             <div class="p-6 flex-grow flex flex-col justify-between">
               <div>
                 <h3 class="text-2xl font-bold text-white mb-2">ШАМПИОН АУТО СОФИЯ</h3>
               </div>
-              <span class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors mt-4">
+              <span
+                class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors mt-4">
                 Виж обявите
               </span>
             </div>
           </div>
         </a>
-        
+
         <!-- Partner 14 - ШАМПИОН АУТО ВАРНА -->
         <a href="https://champion.mobile.bg/" target="_blank" rel="noopener noreferrer" class="block">
-          <div class="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
+          <div
+            class="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
             <div class="h-48 logo-card" style="background-image: url('logos/championautovarna.jpg')"></div>
             <div class="p-6 flex-grow flex flex-col justify-between">
               <div>
                 <h3 class="text-2xl font-bold text-white mb-2">ШАМПИОН АУТО ВАРНА</h3>
               </div>
-              <span class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors mt-4">
+              <span
+                class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors mt-4">
                 Виж обявите
               </span>
             </div>
           </div>
         </a>
-        
+
         <!-- Partner 15 - КЛАС МОТОРС -->
         <a href="https://classmotors.mobile.bg/" target="_blank" rel="noopener noreferrer" class="block">
-          <div class="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
+          <div
+            class="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
             <div class="h-48 logo-card" style="background-image: url('logos/classmotors.jpg')"></div>
             <div class="p-6 flex-grow flex flex-col justify-between">
               <div>
                 <h3 class="text-2xl font-bold text-white mb-2">КЛАС МОТОРС</h3>
               </div>
-              <span class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors mt-4">
+              <span
+                class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors mt-4">
                 Виж обявите
               </span>
             </div>
           </div>
         </a>
-        
+
         <!-- Partner 16 - АЛФА АУТО -->
         <a href="https://alfa.mobile.bg/" target="_blank" rel="noopener noreferrer" class="block">
-          <div class="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
+          <div
+            class="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
             <div class="h-48 logo-card" style="background-image: url('logos/alfaauto.png')"></div>
             <div class="p-6 flex-grow flex flex-col justify-between">
               <div>
                 <h3 class="text-2xl font-bold text-white mb-2">АЛФА АУТО</h3>
               </div>
-              <span class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors mt-4">
+              <span
+                class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors mt-4">
                 Виж обявите
               </span>
             </div>
           </div>
         </a>
-        
+
         <!-- Partner 17 - АВТОКЪЩА ОЛИМП -->
         <a href="https://olympauto.mobile.bg/" target="_blank" rel="noopener noreferrer" class="block">
-          <div class="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
+          <div
+            class="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
             <div class="h-48 logo-card" style="background-image: url('logos/olympauto.jpg')"></div>
             <div class="p-6 flex-grow flex flex-col justify-between">
               <div>
                 <h3 class="text-2xl font-bold text-white mb-2">АВТОКЪЩА ОЛИМП</h3>
               </div>
-              <span class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors mt-4">
+              <span
+                class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors mt-4">
                 Виж обявите
               </span>
             </div>
@@ -322,5 +389,15 @@
   <footer class="bg-gray-800 text-center py-8 border-t border-gray-700 mt-16">
     <p class="text-gray-400">© 2024 НКС АВТО МЕЧТИ. All rights reserved.</p>
   </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
 </body>
+
 </html>
