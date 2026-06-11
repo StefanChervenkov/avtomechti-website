@@ -5,6 +5,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us - НКС Авто Мечти</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .office-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 0.5rem;
+      height: 300px;
+      cursor: pointer;
+    }
+    
+    .office-image {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.3s ease;
+    }
+    
+    .office-card:hover .office-image {
+      transform: scale(1.05);
+    }
+    
+    .office-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 20px;
+      transition: background 0.3s ease;
+    }
+    
+    .office-card:hover .office-overlay {
+      background: rgba(0, 0, 0, 0.6);
+    }
+    
+    .office-name {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+  </style>
 </head>
 <body class="bg-gray-900 text-gray-100">
   <nav class="bg-gray-800 shadow-lg">
@@ -14,10 +61,10 @@
         <div class="text-2xl font-bold text-blue-400">НКС АВТО МЕЧТИ</div>
       </div>
       <ul class="flex gap-6">
-        <li><a href="index.html" class="hover:text-blue-400 transition">Начало</a></li>
-        <li><a href="listings.html" class="hover:text-blue-400 transition">Автомобили</a></li>
-        <li><a href="about.html" class="hover:text-blue-400 transition">За нас</a></li>
-        <li><a href="contact.html" class="hover:text-blue-400 transition">Контакти</a></li>
+        <li><a href="index.html" class="hover:text-blue-400 transition">Home</a></li>
+        <li><a href="listings.html" class="hover:text-blue-400 transition">Listings</a></li>
+        <li><a href="about.html" class="hover:text-blue-400 transition">About Us</a></li>
+        <li><a href="contact.html" class="hover:text-blue-400 transition">Contact</a></li>
       </ul>
     </div>
   </nav>
@@ -25,42 +72,43 @@
   <section class="max-w-7xl mx-auto px-4 py-16">
     <h1 class="text-4xl font-bold mb-12">Contact Us</h1>
     
-    <!-- Office Locations -->
+    <!-- Office Locations with Photos -->
     <div class="mb-16">
       <h2 class="text-2xl font-bold text-blue-400 mb-8">Our Office Locations</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Location 1 -->
-        <div class="bg-gray-800 rounded-lg p-6 hover:shadow-xl transition-shadow">
-          <h3 class="text-xl font-bold text-white mb-3">НКС Гоце Аелчев</h3>
-          <p class="text-gray-300 mb-4">Visit our showroom</p>
-          <a href="https://share.google/J064nw7RqPSWoXe7G" target="_blank" rel="noopener noreferrer"
-             class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors">
-            📍 View on Maps
-          </a>
-        </div>
+        <!-- Location 1: Goce Delchev -->
+        <a href="https://share.google/J064nw7RqPSWoXe7G" target="_blank" rel="noopener noreferrer" class="block">
+          <div class="office-card">
+            <div class="office-image" style="background-image: url('images/offices/office-goce-delchev.jpg')"></div>
+            <div class="office-overlay">
+              <div class="office-name">НКС Гоце Аелчев</div>
+            </div>
+          </div>
+        </a>
         
-        <!-- Location 2 -->
-        <div class="bg-gray-800 rounded-lg p-6 hover:shadow-xl transition-shadow">
-          <h3 class="text-xl font-bold text-white mb-3">НКС София</h3>
-          <p class="text-gray-300 mb-4">Visit our Sofia location</p>
-          <a href="https://share.google/oAS2cLzJWrc4rCWDA" target="_blank" rel="noopener noreferrer"
-             class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors">
-            📍 View on Maps
-          </a>
-        </div>
+        <!-- Location 2: Sofia -->
+        <a href="https://share.google/oAS2cLzJWrc4rCWDA" target="_blank" rel="noopener noreferrer" class="block">
+          <div class="office-card">
+            <div class="office-image" style="background-image: url('images/offices/office-sofia.jpg')"></div>
+            <div class="office-overlay">
+              <div class="office-name">НКС София</div>
+            </div>
+          </div>
+        </a>
         
-        <!-- Location 3 -->
-        <div class="bg-gray-800 rounded-lg p-6 hover:shadow-xl transition-shadow">
-          <h3 class="text-xl font-bold text-white mb-3">НКС Пловдив</h3>
-          <p class="text-gray-300 mb-4">Visit our Plovdiv location</p>
-          <a href="https://share.google/Bor0epyK5iPxCAqk4" target="_blank" rel="noopener noreferrer"
-             class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors">
-            📍 View on Maps
-          </a>
-        </div>
+        <!-- Location 3: Plovdiv -->
+        <a href="https://share.google/Bor0epyK5iPxCAqk4" target="_blank" rel="noopener noreferrer" class="block">
+          <div class="office-card">
+            <div class="office-image" style="background-image: url('images/offices/office-plovdiv.jpg')"></div>
+            <div class="office-overlay">
+              <div class="office-name">НКС Пловдив</div>
+            </div>
+          </div>
+        </a>
       </div>
     </div>
     
+    <!-- Contact Info Section -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <!-- Contact Info -->
       <div>
