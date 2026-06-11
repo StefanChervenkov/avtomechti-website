@@ -5,6 +5,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Avtomechti - Premium Auto Dealership</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .slideshow-container {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      overflow: hidden;
+    }
+    
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    
+    .slide.active {
+      opacity: 1;
+    }
+    
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+    
+    .slide-dots {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 20;
+      display: flex;
+      gap: 10px;
+    }
+    
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    
+    .dot.active {
+      background: rgba(255, 255, 255, 1);
+    }
+  </style>
 </head>
 <body class="bg-gray-900 text-gray-100">
   <nav class="bg-gray-800 shadow-lg">
@@ -19,16 +77,31 @@
     </div>
   </nav>
 
-  <section class="bg-gradient-to-r from-blue-600 to-blue-800 py-16">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <h1 class="text-5xl font-bold mb-4">Welcome to Avtomechti</h1>
-      <p class="text-xl text-gray-200">Your trusted partner for premium quality vehicles</p>
-      <a href="listings.html" class="inline-block mt-6 bg-white text-blue-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition">
-        Browse Our Listings
-      </a>
+  <!-- Hero Section with Slideshow -->
+  <section class="slideshow-container">
+    <!-- Slides -->
+    <div class="slide active" id="slide1" style="background-image: url('images/office-outside.jpg')"></div>
+    <div class="slide" id="slide2" style="background-image: url('images/office-inside.jpg')"></div>
+    
+    <!-- Overlay with Text -->
+    <div class="overlay">
+      <div class="text-center">
+        <h1 class="text-5xl font-bold mb-4">Welcome to Avtomechti</h1>
+        <p class="text-xl text-gray-200">Your trusted partner for premium quality vehicles</p>
+        <a href="listings.html" class="inline-block mt-6 bg-white text-blue-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition">
+          Browse Our Listings
+        </a>
+      </div>
+    </div>
+    
+    <!-- Navigation Dots -->
+    <div class="slide-dots">
+      <span class="dot active" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
     </div>
   </section>
 
+  <!-- Features Section -->
   <section class="max-w-7xl mx-auto px-4 py-16">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div class="bg-gray-800 p-8 rounded-lg text-center">
@@ -49,5 +122,50 @@
   <footer class="bg-gray-800 text-center py-8 border-t border-gray-700">
     <p class="text-gray-400">© 2024 Avtomechti. All rights reserved.</p>
   </footer>
+
+  <script>
+    let currentSlideIndex = 1;
+    let slideInterval;
+
+    function showSlides(n) {
+      const slides = document.getElementsByClassName('slide');
+      const dots = document.getElementsByClassName('dot');
+      
+      if (n > slides.length) {
+        currentSlideIndex = 1;
+      }
+      if (n < 1) {
+        currentSlideIndex = slides.length;
+      }
+      
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.remove('active');
+      }
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.remove('active');
+      }
+      
+      slides[currentSlideIndex - 1].classList.add('active');
+      dots[currentSlideIndex - 1].classList.add('active');
+    }
+
+    function currentSlide(n) {
+      clearInterval(slideInterval);
+      showSlides(currentSlideIndex = n);
+      autoSlide();
+    }
+
+    function nextSlide() {
+      showSlides(++currentSlideIndex);
+    }
+
+    function autoSlide() {
+      slideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+    }
+
+    // Initialize
+    showSlides(currentSlideIndex);
+    autoSlide();
+  </script>
 </body>
 </html>
