@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +14,7 @@
       height: 300px;
       cursor: pointer;
     }
-    
+
     .office-image {
       width: 100%;
       height: 100%;
@@ -21,11 +22,11 @@
       background-position: center;
       transition: transform 0.3s ease;
     }
-    
+
     .office-card:hover .office-image {
       transform: scale(1.05);
     }
-    
+
     .office-overlay {
       position: absolute;
       top: 0;
@@ -39,11 +40,11 @@
       padding: 20px;
       transition: background 0.3s ease;
     }
-    
+
     .office-card:hover .office-overlay {
       background: rgba(0, 0, 0, 0.6);
     }
-    
+
     .office-name {
       color: white;
       font-size: 1.5rem;
@@ -53,25 +54,56 @@
     }
   </style>
 </head>
+
 <body class="bg-gray-900 text-gray-100">
   <nav class="bg-gray-800 shadow-lg">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <div class="flex items-center gap-3">
-        <img src="logos/nks-avtomechti.png" alt="НКС Авто Мечти" class="h-12 w-auto">
-        <div class="text-2xl font-bold text-blue-400">НКС АВТО МЕЧТИ</div>
+    <div class="max-w-7xl mx-auto px-4 py-4">
+
+      ```
+      <div class="flex justify-between items-center">
+
+        <div class="flex items-center gap-3">
+          <img src="logos/nks-avtomechti.png" alt="НКС АВТО МЕЧТИ" class="h-12 w-auto">
+          <div class="text-lg md:text-2xl font-bold text-blue-400">
+            НКС АВТО МЕЧТИ
+          </div>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <ul class="hidden md:flex gap-6">
+          <li><a href="index.html" class="hover:text-blue-400 transition">Начало</a></li>
+          <li><a href="listings.html" class="hover:text-blue-400 transition">Автомобили</a></li>
+          <li><a href="about.html" class="hover:text-blue-400 transition">За нас</a></li>
+          <li><a href="contact.html" class="hover:text-blue-400 transition">Контакти</a></li>
+        </ul>
+
+        <!-- Hamburger Button -->
+        <button id="menu-btn" class="md:hidden">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+
       </div>
-      <ul class="flex gap-6">
-        <li><a href="index.html" class="hover:text-blue-400 transition">Начало</a></li>
-        <li><a href="listings.html" class="hover:text-blue-400 transition">Автомобили</a></li>
-        <li><a href="about.html" class="hover:text-blue-400 transition">За нас</a></li>
-        <li><a href="contact.html" class="hover:text-blue-400 transition">Контакти</a></li>
-      </ul>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden mt-4">
+        <ul class="flex flex-col gap-4 border-t border-gray-700 pt-4">
+          <li><a href="index.html" class="block hover:text-blue-400">Начало</a></li>
+          <li><a href="listings.html" class="block hover:text-blue-400">Автомобили</a></li>
+          <li><a href="about.html" class="block hover:text-blue-400">За нас</a></li>
+          <li><a href="contact.html" class="block hover:text-blue-400">Контакти</a></li>
+        </ul>
+      </div>
+      ```
+
     </div>
   </nav>
 
+
   <section class="max-w-7xl mx-auto px-4 py-16">
     <h1 class="text-4xl font-bold mb-12">Контакти</h1>
-    
+
     <!-- Office Locations with Photos -->
     <div class="mb-16">
       <h2 class="text-2xl font-bold text-blue-400 mb-8">Нашите офиси</h2>
@@ -85,7 +117,7 @@
             </div>
           </div>
         </a>
-        
+
         <!-- Location 2: Sofia -->
         <a href="https://maps.app.goo.gl/G2e41vsBWppUeidR7" target="_blank" rel="noopener noreferrer" class="block">
           <div class="office-card">
@@ -95,11 +127,11 @@
             </div>
           </div>
         </a>
-        
+
         <!-- Location 3: Plovdiv -->
         <a href="https://maps.app.goo.gl/KPVkusCMuzs7RftP9" target="_blank" rel="noopener noreferrer" class="block">
           <div class="office-card">
-            <div class="office-image" style="background-image: url('images/offices/office-plovdiv.jpg')"></div>
+            <div class="office-image" style="background-image: url('images/offices/office-plovdiv.png')"></div>
             <div class="office-overlay">
               <div class="office-name">НКС Пловдив</div>
             </div>
@@ -115,41 +147,51 @@
           </div>
       </div>
     </div>
-    
+
     <!-- Contact Info Section -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <!-- Contact Info -->
       <div>
         <div class="bg-gray-800 rounded-lg p-8 mb-8">
           <h2 class="text-2xl font-bold text-blue-400 mb-6">Свържете се с нас</h2>
-          
+
           <div class="mb-6">
             <h3 class="text-lg font-bold text-white mb-2">Телефон</h3>
             <p class="text-gray-300">+359 899 940 325</p>
           </div>
-          
+
           <div class="mb-6">
             <h3 class="text-lg font-bold text-white mb-2">Email</h3>
             <p class="text-gray-300">avtomechti@gmail.com</p>
           </div>
-          
+
           <div class="mb-6">
             <h3 class="text-lg font-bold text-white mb-2">Mobile.bg </h3>
             <a href="https://avtomechti.mobile.bg/" target="_blank" rel="noopener noreferrer"
-               class="text-blue-400 hover:text-blue-300 transition">
-              Посетете нашата страница в Mobile.bg 
+              class="text-blue-400 hover:text-blue-300 transition">
+              Посетете нашата страница в Mobile.bg
             </a>
           </div>
         </div>
       </div>
-      
+
       <!-- Contact Form -->
-      
+
     </div>
   </section>
 
   <footer class="bg-gray-800 text-center py-8 border-t border-gray-700 mt-16">
     <p class="text-gray-400">© 2024 НКС Авто Мечти. All rights reserved.</p>
   </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    }); 
+  </script>
 </body>
+
 </html>
